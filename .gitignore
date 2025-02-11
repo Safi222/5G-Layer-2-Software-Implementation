@@ -1,0 +1,8 @@
+# VS Code files
+.vscode/
+.vs/
+
+# Debug files
+*.pdb
+*.ilk
+*.idb
