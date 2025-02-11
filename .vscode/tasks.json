@@ -2,6 +2,7 @@
     "version": "2.0.0",
     "tasks": [
         {
+<<<<<<< HEAD
             "type": "cppbuild",
             "label": "C/C++: g++.exe build active file",
             "command": "g++",
@@ -18,11 +19,37 @@
             },
             "problemMatcher": [
                 "$gcc"
+=======
+            "label": "build 5G Layer 2 Project",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "main.cpp",
+                "PDCP/PDCP.cpp",
+                "-o",
+                "5GLayer2Project.exe"
+>>>>>>> 20376e1073c6ad0f9e0c627f4ba845abe9258671
             ],
             "group": {
                 "kind": "build",
                 "isDefault": true
+<<<<<<< HEAD
             }
         }
     ]
 }
+=======
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        }
+    ]
+}
+>>>>>>> 20376e1073c6ad0f9e0c627f4ba845abe9258671
