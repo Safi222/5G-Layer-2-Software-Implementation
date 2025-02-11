@@ -16,6 +16,7 @@ This repository contains the implementation of various Layer-2 components for a 
 ## Authors
 
 - Safia Gibril Nouman Abdalla 174045
+- Alaa Almouiz Farog Mohammed 174018
 
 ## Overview
 
