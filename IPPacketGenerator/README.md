@@ -4,7 +4,7 @@ A C++ implementation of an IPv4 packet generator that creates and displays IP pa
 
 # The structure of an IP packet
 
-![IP Packet Structure implemented]([assets\IpPacket.png](assets\IpPacket.png)
+![IP Packet Structure implemented]([https://github.com/Safi222/5G-Layer-2-Software-Implementation/blob/c9489e57f29a6aa62f6dd01fd97e9be1d91635eb/assets/IpPacket.png])
 
 1. Version: This field indicates the IP protocol version, such as IPv4 or IPv6, which helps determine how the packet should be routed.
 2. Total length: Specifies the packet's total length of the data payload (the message) and the header, which are essential for the recipient to understand the packet's contents.
