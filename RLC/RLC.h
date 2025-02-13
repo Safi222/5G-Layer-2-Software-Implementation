@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <string>
+#include <cstdint>
 
 // RLC Class: Implements basic segmentation, reassembly, and retransmission.
 class RLC {
