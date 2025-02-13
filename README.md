@@ -1,7 +1,3 @@
-Below is an improved and complete version of your README.md, styled and formatted for GitHub:
-
----
-
 # 5G Layer-2 Software Implementation
 
 This repository contains a modular implementation of key Layer-2 components for 5G networks. The project simulates the behavior of 5G protocols at the data link layer, including packet generation, header and payload processing, segmentation, reassembly, scheduling, and multiplexing. This implementation serves as a platform for understanding and testing 5G NR (New Radio) protocols.
@@ -11,6 +7,7 @@ This repository contains a modular implementation of key Layer-2 components for 
 ## Table of Contents
 
 - [Overview](#overview)
+- [Authors](#authors)
   - [Key Components](#key-components)
 - [Features](#features)
 - [Requirements](#requirements)
@@ -26,6 +23,17 @@ This repository contains a modular implementation of key Layer-2 components for 
 ## Overview
 
 The project simulates the following key Layer-2 protocols used in 5G networks:
+
+## Authors
+
+1. Safia Gibril Nouman Abdalla            - 174045
+2. Alaa Almouiz Farog Mohammed            - 174018
+3. Ethar Abdelazeem MohamedAli Abdelgader - 174022
+4. Suzan Ahmed Ali Fadlelmoula            - 174041
+5. Azza Ibrahim hassan bakhit             - 174054
+6. Rayan hassan khogali mohamed           - 174034
+7. Marafi Muawya Sufyan Fakhruddin        - 175089
+8. Safaa Abdelsalam Abdelmagid Elamin     - 174044
 
 ### Key Components
 
