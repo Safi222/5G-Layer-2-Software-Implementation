@@ -1,7 +1,7 @@
 #include <iostream>
 #include "PDCP/PDCP.h"
 #include "RLC/RLC.h"
-// #include "IP/IP.h"      // Uncomment once the IP layer is implemented
+#include "IpPacketGenerator/IpPacketGenerator.h"
 
 void printData(const std::vector<uint8_t>& data) {
     for (size_t i = 0; i < data.size(); i++) {
@@ -13,18 +13,37 @@ void printData(const std::vector<uint8_t>& data) {
 int main() {
     // -------------------------------
     // Step 1: Generate a packet from the IP layer
-    // For now, we're using a dummy packet to simulate the IP layer's output
-    std::string packet = "IPHeaderInformation|This is the payload data that needs processing.";
-    
+    // Define some example data (payload)
+    std::vector<uint8_t> data = {0x01, 0x02, 0x03, 0x04, 0x05};  // Example payload data
+
+    // Define source and destination IPs (in this case, using integers to represent IP addresses)
+    uint32_t srcIp = 0xC0A80001;  // Example source IP (192.168.0.1)
+    uint32_t destIp = 0xC0A80002; // Example destination IP (192.168.0.2)
+
+    // Define protocol (e.g., 0x06 for TCP)
+    uint8_t protocol = 0x06; // TCP protocol
+
+    // Create an IpPacket instance with the defined values
+    IpPacket ipPacket(srcIp, destIp, data.size(), protocol, data);
+
+    // Print the packet details
+    std::cout << "Generated IP Packet: \n";
+    ipPacket.printPacketDetails();  // This will display the IP header and payload info
+
+    // Generate the formatted packet to pass to PDCP
+    std::string formattedPacket = ipPacket.formatPacket();
+
     // -------------------------------
     // Step 2: Process the packet through the PDCP layer
     PDCP pdcp("mysecretkey");
-    std::string pdcpPacket = pdcp.processPacket(packet);
+    std::string pdcpPacket = pdcp.processPacket(formattedPacket);
     
     // -------------------------------
     // Step 3: Pass the processed packet to the RLC layer
     RLC rlc;
-    std::vector<std::vector<uint8_t>> segmentedRlcPackets = rlc.segmentData({pdcpPacket.begin(), pdcpPacket.end()});
+    // Convert the processed PDCP packet (a std::string) to a std::vector<uint8_t>
+    std::vector<uint8_t> pdcpData(pdcpPacket.begin(), pdcpPacket.end());
+    std::vector<std::vector<uint8_t>> segmentedRlcPackets = rlc.segmentData(pdcpData);
 
     // -------------------------------
     // Step 4: Display the segmented RLC packets
