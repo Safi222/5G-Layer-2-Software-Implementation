@@ -1,5 +1,6 @@
-#include "IpPacket.h"
+#include "IpPacketGenerator.h"
 #include <iomanip>
+#include <cstdlib>
 
 // IpHeader constructor
 IpHeader::IpHeader(uint32_t srcIp, uint32_t destIp, uint16_t dataLength, uint8_t protocol) {
@@ -50,4 +51,22 @@ void IpPacket::printPacketDetails() const {
                   << +data[i] << " ";
     }
     std::cout << std::dec << "\n";
+}
+
+//format the packet to "Header|Payload"
+std::string IpPacket::formatPacket() const {
+    std::ostringstream packetStream;
+
+    // Format header as a simple string (just an example, adjust as needed)
+    packetStream << "Version: " << +header.version << "|"
+                 << "Source IP: " << std::hex << header.sourceIp << "|"
+                 << "Destination IP: " << std::hex << header.destinationIp;
+
+    // Add payload data (first 16 bytes for simplicity)
+    packetStream << "|";
+    for (size_t i = 0; i < std::min(data.size(), size_t(16)); ++i) {
+        packetStream << std::hex << std::setw(2) << std::setfill('0') << +data[i];
+    }
+
+    return packetStream.str();
 }

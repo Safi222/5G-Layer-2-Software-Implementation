@@ -9,7 +9,7 @@
 #include <winsock2.h>
 
 class IpHeader {
-private:
+public:
     // IP header fields using bit fields to match exact IP header structure
     uint8_t version : 4;    // IP version (4 bits for IPv4)
     uint8_t ihl : 4;    // Internet Header Length (4 bits)   
@@ -27,7 +27,6 @@ private:
     std::vector<uint8_t> options;   // Optional fields
     std::vector<uint8_t> padding;   // Padding bytes
 
-public:
     // Member function declarations
     IpHeader(uint32_t srcIp, uint32_t destIp, uint16_t dataLength, uint8_t protocol);
     void displayHeader() const;
@@ -35,12 +34,14 @@ public:
 
 class IpPacket {
 private:
-    IpHeader header;
     std::vector<uint8_t> data;
 
 public:
     // Constructor and member function declarations
+    IpHeader header;
     IpPacket(uint32_t srcIp, uint32_t destIp, uint16_t dataLength, uint8_t protocol, const std::vector<uint8_t>& data);
+    std::string formatPacket() const;
+    std::vector<uint8_t> payload;
     void printPacketDetails() const;
 };
 
