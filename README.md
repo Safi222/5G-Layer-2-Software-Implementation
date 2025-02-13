@@ -8,7 +8,7 @@ This repository contains a modular implementation of key Layer-2 components for 
 
 - [Overview](#overview)
 - [Authors](#authors)
-  - [Key Components](#key-components)
+- [Key Components](#key-components)
 - [Features](#features)
 - [Requirements](#requirements)
 - [Installation](#installation)
